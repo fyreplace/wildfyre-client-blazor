@@ -1,0 +1,51 @@
+.navigation {
+    padding-top: 16px;
+    border-right: 1px solid var(--color-separator);
+    font-size: 0.875rem;
+}
+
+.nav-wrapper {
+    display: flex;
+    max-height: 48px;
+    padding-bottom: 16px;
+}
+
+::deep a {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 16px;
+    transition: 0.3s;
+}
+
+::deep a:hover {
+    background-color: rgba(var(--color-primary-rgb), 0.5);
+    transition: 0.1s;
+}
+
+::deep a:active {
+    background-color: rgba(var(--color-primary-rgb), 0.65);
+    transition: 0.1s;
+}
+
+::deep a.active {
+    background-color: rgba(var(--color-primary-rgb), 0.75);
+}
+
+@media (min-width: 600px) {
+    .navigation {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 960px) {
+    .navigation {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    ::deep a {
+        border-radius: 4px;
+    }
+}

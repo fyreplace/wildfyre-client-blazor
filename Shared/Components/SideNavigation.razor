@@ -1,0 +1,10 @@
+@inherits NavigationBase
+
+<nav class="navigation -side">
+    @foreach (var destination in Destinations)
+    {
+        <div class="nav-wrapper" style="height: calc(@ItemSize - 16px)">
+            <NavLink href="@destination.Route">@destination.Text</NavLink>
+        </div>
+    }
+</nav>

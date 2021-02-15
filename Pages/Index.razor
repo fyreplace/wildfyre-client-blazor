@@ -1,0 +1,10 @@
+@page "/"
+@inject NavigationManager Navigator
+
+@code
+{
+    protected override void OnInitialized() {
+        base.OnInitialized();
+        Navigator.NavigateTo("feed");
+    }
+}

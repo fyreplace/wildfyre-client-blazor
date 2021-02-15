@@ -1,0 +1,28 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+::deep .navigation.-side {
+    display: none;
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .page {
+        flex-direction: row;
+    }
+
+    ::deep .navigation.-side {
+        display: initial;
+    }
+
+    ::deep .navigation.-bottom {
+        display: none;
+    }
+}

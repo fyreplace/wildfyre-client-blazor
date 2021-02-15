@@ -1,0 +1,21 @@
+html {
+    --color-accent-rgb: 255, 99, 64;
+}
+
+@media (prefers-color-scheme: light) {
+    html {
+        --color-foreground: black;
+        --color-background: white;
+        --color-separator: #CFCFCF;
+        --color-primary-rgb: 230, 74, 25;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        --color-foreground: white;
+        --color-background: black;
+        --color-separator: #2F2F2F;
+        --color-primary-rgb: 255, 112, 67;
+    }
+}

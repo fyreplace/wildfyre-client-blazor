@@ -1,0 +1,18 @@
+@inherits LayoutComponentBase
+
+<div class="page">
+    <SideNavigation Destinations="@destinations" />
+    <div class="main">@Body</div>
+    <BottomNavigation Destinations="@destinations" />
+</div>
+
+@code
+{
+    private Destination[] destinations = new Destination[] {
+        new Destination() { Route="feed", Text="Feed" },
+        new Destination() { Route="notifications", Text="Notifications" },
+        new Destination() { Route="archive", Text="Archive" },
+        new Destination() { Route="drafts", Text="Drafts" },
+        new Destination() { Route="settings", Text="Settings" },
+    };
+}
