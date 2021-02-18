@@ -1,0 +1,72 @@
+@inject ILocalStorageService localStorage
+@inject IAuthService authService
+@inject NavigationManager navigator
+
+<form class="form">
+    <TextField
+        Type="text"
+        Name="username"
+        Placeholder="Username"
+        CssClass="field"
+        @bind-Value=@credentials.Username
+    />
+    <TextField
+        Type="password"
+        Name="password"
+        Placeholder="Password"
+        CssClass="field"
+        @bind-Value=@credentials.Password
+    />
+    <Button
+        Type="submit"
+        CssClass="submit"
+        Disabled=@CannotProceed
+        Loading=@loading
+        OnClick=@OnSubmit
+    >
+        Login
+    </Button>
+    <a
+        href="https://wildfyre.net/register"
+        target="_blank"
+        rel="noopener"
+        class="button"
+    >
+        Register
+    </a>
+</form>
+
+@code
+{
+    private Credentials credentials;
+    private bool loading;
+    private bool CannotProceed
+    {
+        get
+        {
+            var usernameLength = credentials.Username?.Length ?? 0;
+            var passwordLength = credentials.Password?.Length ?? 0;
+            return usernameLength == 0 || passwordLength == 0;
+        }
+    }
+
+    private async Task OnSubmit(MouseEventArgs args)
+    {
+        try
+        {
+            loading = true;
+            await Task.Delay(750);
+            var token = await authService.Login(credentials);
+            await localStorage.SetItemAsync("auth.token", token.Token);
+            navigator.NavigateTo("feed");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        finally
+        {
+            loading = false;
+        }
+    }
+}

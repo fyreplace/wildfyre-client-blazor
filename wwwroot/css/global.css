@@ -15,6 +15,12 @@ html {
     -webkit-tap-highlight-color: transparent;
 }
 
+input,
+button {
+    margin: 0;
+}
+
 * {
+    outline: none;
     transition: 0.1s;
 }

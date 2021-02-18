@@ -1,9 +1,19 @@
 @inherits LayoutComponentBase
+@inject ILocalStorageService localStorage
 
-<div class="page">
-    <SideNavigation Destinations="@destinations" />
-    <div class="main">@Body</div>
-    <BottomNavigation Destinations="@destinations" />
+<div class="page @CssClass">
+    <SideNavigation Destinations=@destinations />
+    <BottomNavigation Destinations=@destinations />
+    <div class="main">
+        @if (isAuthenticated)
+        {
+            @Body
+        }
+        else
+        {
+            <Login />
+        }
+    </div>
 </div>
 
 @code
@@ -35,4 +45,25 @@
             Icon = __builder => { <SettingsIcon /> },
         },
     };
+    private bool isAuthenticated;
+    private string CssClass => isAuthenticated ? "" : "-full-screen";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        localStorage.Changed += OnLocalStorageChanged;
+        var token = await localStorage.GetItemAsStringAsync("auth.token");
+        var changedArgs = new Blazored.LocalStorage.ChangedEventArgs() { Key = "auth.token", NewValue = token };
+        OnLocalStorageChanged(this, changedArgs);
+    }
+
+    private void OnLocalStorageChanged(object sender, Blazored.LocalStorage.ChangedEventArgs args)
+    {
+        var value = args.NewValue?.ToString() ?? "";
+
+        if (args.Key == "auth.token")
+        {
+            isAuthenticated = value.Length > 0;
+        }
+    }
 }

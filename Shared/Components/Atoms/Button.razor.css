@@ -1,0 +1,61 @@
+.button {
+    position: relative;
+    min-height: 32px;
+    padding: 0 12px;
+    border: 2px solid rgb(var(--color-primary-rgb));
+    border-radius: 4px;
+
+    background: transparent;
+    color: rgb(var(--color-primary-rgb));
+    fill: rgb(var(--color-primary-rgb));
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+    background: rgb(var(--color-primary-rgb));
+    color: var(--color-on-primary);
+    fill: var(--color-on-primary);
+}
+
+.button:active:not(:disabled) {
+    transform: scale(0.9);
+}
+
+.button:disabled {
+    border-color: var(--color-input-label);
+    color: var(--color-input-label);
+    cursor: not-allowed;
+}
+
+.button.-loading {
+    pointer-events: none;
+}
+
+.button.-loading .content {
+    opacity: 0;
+}
+
+.button:not(.-loading) .loader {
+    opacity: 0;
+}
+
+.loader,
+::deep .icon {
+    width: 100%;
+    height: 100%;
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width: 480px) and (min-height: 480px) {
+    .button {
+        min-height: 40px;
+        padding: 0 16px;
+    }
+}

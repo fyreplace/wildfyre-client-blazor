@@ -1,0 +1,33 @@
+@inherits Styleable
+
+<div class=@CssClass>
+    <button
+        type=@Type
+        disabled=@Disabled
+        class="button @ButtonCssClass"
+        @onclick=@OnClick
+        @onclick:preventDefault=true
+    >
+        <span class="content">@ChildContent</span>
+        @if (Loading)
+        {
+            <span class="loader"><Loader /></span>
+        }
+    </button>
+</div>
+
+@code
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public string Type { get; set; }
+    [Parameter]
+    public bool Disabled { get; set; }
+    [Parameter]
+    public bool Loading { get; set; }
+    [Parameter]
+    public Func<MouseEventArgs, Task> OnClick { get; set; }
+
+    private string ButtonCssClass => Loading ? "-loading" : "";
+}

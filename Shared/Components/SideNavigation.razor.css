@@ -5,6 +5,13 @@
     overflow-x: hidden;
 }
 
+.-full-screen .navigation {
+    width: 0;
+    border: none;
+    overflow: hidden;
+    transform: translateX(-100%);
+}
+
 .nav-wrapper {
     display: flex;
     max-height: 48px;

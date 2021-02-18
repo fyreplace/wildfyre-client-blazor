@@ -1,13 +1,18 @@
 html {
-    --color-accent-rgb: 255, 99, 64;
+    --color-error: red;
+    --color-input-label: #7F7F7F;
+    --color-accent-rgb: 255, 110, 64;
 }
 
 @media (prefers-color-scheme: light) {
     html {
         --color-foreground: black;
         --color-background: white;
+        --color-background-input: #EFEFEF;
         --color-separator: #CFCFCF;
+        --color-input-placeholder: #9F9F9F;
         --color-primary-rgb: 230, 74, 25;
+        --color-on-primary: white;
     }
 }
 
@@ -15,7 +20,10 @@ html {
     html {
         --color-foreground: white;
         --color-background: black;
+        --color-background-input: #1F1F1F;
         --color-separator: #2F2F2F;
+        --color-input-placeholder: #5F5F5F;
         --color-primary-rgb: 255, 112, 67;
+        --color-on-primary: white;
     }
 }

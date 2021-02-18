@@ -1,0 +1,24 @@
+.form {
+    width: 240px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+::deep .field,
+::deep .submit {
+    margin-bottom: 16px;
+}
+
+::deep .field {
+    align-self: stretch;
+}
+
+@media (min-height: 480px) {
+    ::deep .field,
+    ::deep .submit {
+        margin-bottom: 24px;
+    }
+}

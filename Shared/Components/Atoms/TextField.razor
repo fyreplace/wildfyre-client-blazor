@@ -1,0 +1,32 @@
+@inherits Styleable
+
+<label class="label @CssClass">
+    <input
+        type=@Type
+        name=@Name
+        placeholder=@Placeholder
+        class="input"
+        value=@Value
+        @oninput=OnInput
+    >
+</label>
+
+@code
+{
+    [Parameter]
+    public string Type { get; set; }
+    [Parameter]
+    public string Name { get; set; }
+    [Parameter]
+    public string Label { get; set; }
+    [Parameter]
+    public string Placeholder { get; set; }
+
+    [Parameter]
+    public string Value { get; set; }
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    private async Task OnInput(ChangeEventArgs args) =>
+        await ValueChanged.InvokeAsync(args.Value?.ToString() ?? "");
+}
