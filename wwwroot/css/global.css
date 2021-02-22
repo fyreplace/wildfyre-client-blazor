@@ -10,6 +10,11 @@ body,
 html {
     background: var(--color-background);
     color: var(--color-foreground);
+    stroke: var(--color-foreground);
     font-family: sans-serif;
     -webkit-tap-highlight-color: transparent;
+}
+
+* {
+    transition: 0.1s;
 }

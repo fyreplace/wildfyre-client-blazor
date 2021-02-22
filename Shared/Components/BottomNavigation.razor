@@ -4,7 +4,10 @@
     @foreach (var destination in Destinations)
     {
         <div class="nav-wrapper" style="flex-basis: @ItemSize">
-            <NavLink href="@destination.Route">@destination.Text</NavLink>
+            <NavLink href="@destination.Route">
+                @destination.Icon
+                @destination.Text
+            </NavLink>
         </div>
     }
 </nav>

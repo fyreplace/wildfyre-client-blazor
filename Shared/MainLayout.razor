@@ -9,10 +9,30 @@
 @code
 {
     private Destination[] destinations = new Destination[] {
-        new Destination() { Route="feed", Text="Feed" },
-        new Destination() { Route="notifications", Text="Notifications" },
-        new Destination() { Route="archive", Text="Archive" },
-        new Destination() { Route="drafts", Text="Drafts" },
-        new Destination() { Route="settings", Text="Settings" },
+        new Destination() {
+            Route = "feed",
+            Text = "Feed",
+            Icon = __builder => { <FeedIcon /> },
+        },
+        new Destination() {
+            Route = "notifications",
+            Text = "Notifications",
+            Icon = __builder => { <NotificationsIcon /> },
+        },
+        new Destination() {
+            Route = "archive",
+            Text = "Archive",
+            Icon = __builder => { <ArchiveIcon /> },
+        },
+        new Destination() {
+            Route = "drafts",
+            Text = "Drafts",
+            Icon = __builder => { <DraftsIcon /> },
+        },
+        new Destination() {
+            Route = "settings",
+            Text = "Settings",
+            Icon = __builder => { <SettingsIcon /> },
+        },
     };
 }

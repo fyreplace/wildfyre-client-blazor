@@ -14,6 +14,6 @@ namespace Ynferno.Shared.Components
     {
         public string Route { get; set; }
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public RenderFragment Icon { get; set; }
     }
 }
