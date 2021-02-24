@@ -12,7 +12,7 @@
     transform: scaleX(2);
 }
 
-::deep a {
+.navigation ::deep a {
     display: inline-flex;
     align-items: center;
     width: 100%;
@@ -21,22 +21,22 @@
     border: 2px solid transparent;
 }
 
-::deep a:hover {
+.navigation ::deep a:hover {
     border-color: rgb(var(--color-primary-rgb));
     color: rgb(var(--color-primary-rgb));
 }
 
-::deep a:active {
+.navigation ::deep a:active {
     transform: scale(0.9);
 }
 
-::deep a.active {
+.navigation ::deep a.active {
     background-color: rgb(var(--color-primary-rgb));
     border-color: rgb(var(--color-primary-rgb));
     color: inherit;
 }
 
-::deep a > span {
+.navigation ::deep a > span {
     width: 100%;
     transform: scaleX(0.5);
 }

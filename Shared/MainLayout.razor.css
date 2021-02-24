@@ -9,6 +9,11 @@
     flex-grow: 1;
 }
 
+::deep .navigation a {
+    color: var(--color-foreground);
+    text-decoration: none;
+}
+
 ::deep .navigation.-side {
     display: none;
 }

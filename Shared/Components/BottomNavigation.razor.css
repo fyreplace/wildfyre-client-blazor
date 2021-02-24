@@ -20,7 +20,7 @@
     transition: none;
 }
 
-::deep a {
+.navigation ::deep a {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -29,12 +29,12 @@
     height: 100%;
 }
 
-::deep a:hover {
+.navigation ::deep a:hover {
     color: rgb(var(--color-accent-rgb));
     stroke: rgb(var(--color-accent-rgb));
 }
 
-::deep a.active {
+.navigation ::deep a.active {
     color: rgb(var(--color-primary-rgb));
     stroke: rgb(var(--color-primary-rgb));
 }
