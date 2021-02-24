@@ -4,7 +4,7 @@
     @foreach (var destination in Destinations)
     {
         <div class="nav-wrapper" style="height: calc(@ItemSize - 16px)">
-            <NavLink href="@destination.Route">@destination.Text</NavLink>
+            <NavLink href="@destination.Route"><span>@destination.Text</span></NavLink>
         </div>
     }
 </nav>
