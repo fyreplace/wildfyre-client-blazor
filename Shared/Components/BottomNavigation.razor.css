@@ -36,9 +36,11 @@
     height: 100%;
 }
 
-.navigation ::deep a:hover {
-    color: rgb(var(--color-accent-rgb));
-    stroke: rgb(var(--color-accent-rgb));
+@media (hover: hover) {
+    .navigation ::deep a:hover {
+        color: rgb(var(--color-accent-rgb));
+        stroke: rgb(var(--color-accent-rgb));
+    }
 }
 
 .navigation ::deep a.active {

@@ -12,13 +12,16 @@
     cursor: pointer;
 }
 
-.button:hover:not(:disabled) {
-    background: rgb(var(--color-primary-rgb));
-    color: var(--color-on-primary);
-    fill: var(--color-on-primary);
+@media (hover: hover) {
+    .button:hover:not(:disabled) {
+        background: rgb(var(--color-primary-rgb));
+        color: var(--color-on-primary);
+    }
 }
 
 .button:active:not(:disabled) {
+    background: rgb(var(--color-primary-rgb));
+    color: var(--color-on-primary);
     transform: scale(0.9);
 }
 
