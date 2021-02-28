@@ -19,6 +19,7 @@ namespace Ynferno
             builder.Services
                 .AddBlazoredLocalStorage()
                 .AddBlazoredSessionStorage()
+                .AddHistory()
                 .AddRefitClient<IAuthService>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiUrl));
             await builder.Build().RunAsync();

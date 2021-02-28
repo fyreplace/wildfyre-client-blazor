@@ -1,6 +1,5 @@
 @inject ILocalStorageService localStorage
 @inject IAuthService authService
-@inject NavigationManager navigator
 
 <form class="form">
     <TextField
@@ -58,7 +57,6 @@
             await Task.Delay(750);
             var token = await authService.Login(credentials);
             await localStorage.SetItemAsync("auth.token", token.Token);
-            navigator.NavigateTo("feed");
         }
         catch (Exception e)
         {

@@ -1,5 +1,8 @@
 @inherits LayoutComponentBase
+@inject NavigationManager navigator
+@inject IHistoryService history
 @inject ILocalStorageService localStorage
+@inject IJSRuntime javascript
 
 <div class="page @CssClass">
     <SideNavigation Destinations=@destinations />
@@ -51,6 +54,12 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
+
+        if (navigator.ToBaseRelativePath(navigator.Uri) == "")
+        {
+            await javascript.InvokeVoidAsync("window.location.replace", "feed");
+        }
+
         localStorage.Changed += OnLocalStorageChanged;
         var token = await localStorage.GetItemAsStringAsync("auth.token");
         var changedArgs = new Blazored.LocalStorage.ChangedEventArgs() { Key = "auth.token", NewValue = token };
@@ -64,6 +73,7 @@
         if (args.Key == "auth.token")
         {
             isAuthenticated = value.Length > 0;
+            StateHasChanged();
         }
     }
 }
