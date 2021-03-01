@@ -38,14 +38,14 @@
 
 @media (hover: hover) {
     .navigation ::deep a:hover {
-        color: rgb(var(--color-accent-rgb));
-        stroke: rgb(var(--color-accent-rgb));
+        color: var(--color-accent);
+        stroke: var(--color-accent);
     }
 }
 
 .navigation ::deep a.active {
-    color: rgb(var(--color-primary-rgb));
-    stroke: rgb(var(--color-primary-rgb));
+    color: var(--color-primary);
+    stroke: var(--color-primary);
 }
 
 @media (min-width: 480px) {

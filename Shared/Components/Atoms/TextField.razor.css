@@ -20,7 +20,7 @@
 }
 
 .input:focus {
-    border-color: rgb(var(--color-primary-rgb));
+    border-color: var(--color-primary);
 }
 
 .input::placeholder {

@@ -2,25 +2,25 @@
     position: relative;
     min-height: 32px;
     padding: 0 12px;
-    border: 2px solid rgb(var(--color-primary-rgb));
+    border: 2px solid var(--color-primary);
     border-radius: 4px;
 
     background: transparent;
-    color: rgb(var(--color-primary-rgb));
-    fill: rgb(var(--color-primary-rgb));
+    color: var(--color-primary);
+    fill: var(--color-primary);
     font-size: 1rem;
     cursor: pointer;
 }
 
 @media (hover: hover) {
     .button:hover:not(:disabled) {
-        background: rgb(var(--color-primary-rgb));
+        background: var(--color-primary);
         color: var(--color-on-primary);
     }
 }
 
 .button:active:not(:disabled) {
-    background: rgb(var(--color-primary-rgb));
+    background: var(--color-primary);
     color: var(--color-on-primary);
     transform: scale(0.9);
 }

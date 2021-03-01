@@ -31,18 +31,18 @@
 
 @media (hover: hover) {
     .navigation ::deep a:hover {
-        border-color: rgb(var(--color-accent-rgb));
+        border-color: var(--color-accent);
     }
 }
 
 .navigation ::deep a:active {
-    border-color: rgb(var(--color-accent-rgb));
+    border-color: var(--color-accent);
     transform: scale(0.9);
 }
 
 .navigation ::deep a.active {
-    background-color: rgb(var(--color-primary-rgb));
-    border-color: rgb(var(--color-primary-rgb));
+    background: var(--color-primary);
+    border-color: var(--color-primary);
     color: inherit;
 }
 

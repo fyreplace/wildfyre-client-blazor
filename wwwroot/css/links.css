@@ -1,3 +1,3 @@
 a {
-    color: rgb(var(--color-primary-rgb));
+    color: var(--color-primary);
 }

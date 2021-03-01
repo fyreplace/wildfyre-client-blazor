@@ -1,7 +1,7 @@
 html {
     --color-error: red;
     --color-input-label: #7F7F7F;
-    --color-accent-rgb: 255, 110, 64;
+    --color-accent: #FF6E40;
 }
 
 @media (prefers-color-scheme: light) {
@@ -11,7 +11,7 @@ html {
         --color-background-input: #EFEFEF;
         --color-separator: #CFCFCF;
         --color-input-placeholder: #9F9F9F;
-        --color-primary-rgb: 230, 74, 25;
+        --color-primary: #E64A19;
         --color-on-primary: white;
     }
 }
@@ -23,7 +23,7 @@ html {
         --color-background-input: #1F1F1F;
         --color-separator: #2F2F2F;
         --color-input-placeholder: #5F5F5F;
-        --color-primary-rgb: 255, 112, 67;
+        --color-primary: #FF7043;
         --color-on-primary: white;
     }
 }
