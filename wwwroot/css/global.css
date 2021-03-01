@@ -9,8 +9,8 @@ body,
 
 html {
     background: var(--color-background);
-    color: var(--color-foreground);
-    stroke: var(--color-foreground);
+    color: var(--color-on-background);
+    stroke: var(--color-on-background);
     font-family: sans-serif;
     -webkit-tap-highlight-color: transparent;
 }

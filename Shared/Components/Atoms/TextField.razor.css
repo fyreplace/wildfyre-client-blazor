@@ -15,7 +15,7 @@
     border-radius: 4px;
 
     background: var(--color-background-input);
-    color: var(--color-foreground);
+    color: var(--color-on-background);
     font-size: 1rem;
 }
 

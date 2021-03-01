@@ -6,8 +6,10 @@ html {
 
 @media (prefers-color-scheme: light) {
     html {
-        --color-foreground: black;
         --color-background: white;
+        --color-on-background: black;
+        --color-surface: white;
+        --color-on-surface: black;
         --color-background-input: #EFEFEF;
         --color-separator: #CFCFCF;
         --color-input-placeholder: #9F9F9F;
@@ -18,8 +20,10 @@ html {
 
 @media (prefers-color-scheme: dark) {
     html {
-        --color-foreground: white;
         --color-background: black;
+        --color-on-background: white;
+        --color-surface: #0F0F0F;
+        --color-on-surface: white;
         --color-background-input: #1F1F1F;
         --color-separator: #2F2F2F;
         --color-input-placeholder: #5F5F5F;

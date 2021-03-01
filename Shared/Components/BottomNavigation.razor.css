@@ -3,6 +3,9 @@
     justify-content: stretch;
     height: 48px;
     border-top: 1px solid var(--color-separator);
+    background: var(--color-surface);
+    color: var(--color-on-surface);
+    stroke: var(--color-on-surface);
 }
 
 .-full-screen .navigation {
