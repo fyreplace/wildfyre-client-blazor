@@ -1,11 +1,11 @@
 .label {
+    --size-border: 2px;
+    --size-inner-padding: 8px;
+
     display: flex;
     flex-direction: column;
     color: var(--color-input-label);
     font-size: 0.75rem;
-
-    --size-border: 2px;
-    --size-inner-padding: 8px;
 }
 
 .input {
@@ -41,8 +41,8 @@
 
 @media (min-width: 480px) and (min-height: 480px) {
     .label {
-        font-size: 0.875rem;
         --size-inner-padding: 12px;
+        font-size: 0.875rem;
     }
 
     .input {

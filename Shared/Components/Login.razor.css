@@ -1,11 +1,11 @@
 .container {
+    --size-margin: 24px;
+
     width: 240px;
     max-width: 80%;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-
-    --size-margin: 24px;
 }
 
 .logo {
