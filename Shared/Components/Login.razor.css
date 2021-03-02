@@ -1,6 +1,21 @@
-.form {
+.container {
     width: 240px;
     max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    --size-margin: 24px;
+}
+
+.logo {
+    width: 80px;
+    margin-bottom: var(--size-margin);
+    align-self: center;
+    display: none;
+}
+
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +24,7 @@
 
 ::deep .field,
 ::deep .submit {
-    margin-bottom: 16px;
+    margin-bottom: var(--size-margin);
 }
 
 ::deep .field {
@@ -17,8 +32,13 @@
 }
 
 @media (min-height: 480px) {
-    ::deep .field,
-    ::deep .submit {
-        margin-bottom: 24px;
+    .logo {
+        display: initial;
+    }
+}
+
+@media (min-height: 760px) {
+    .logo {
+        width: 100px;
     }
 }

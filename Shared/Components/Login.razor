@@ -2,39 +2,42 @@
 @inject IJSRuntime javascript
 @inject IAuthService authService
 
-<form class="form">
-    <TextField
-        Type="text"
-        Name="username"
-        Placeholder="Username"
-        CssClass="field"
-        @bind-Value=@credentials.Username
-    />
-    <TextField
-        Type="password"
-        Name="password"
-        Placeholder="Password"
-        CssClass="field"
-        @bind-Value=@credentials.Password
-    />
-    <Button
-        Type="submit"
-        CssClass="submit"
-        Disabled=@CannotProceed
-        Loading=@loading
-        OnClick=@OnSubmit
-    >
-        Login
-    </Button>
-    <a
-        href="https://wildfyre.net/register"
-        target="_blank"
-        rel="noopener"
-        class="button"
-    >
-        Register
-    </a>
-</form>
+<div class="container">
+    <img alt="Logo" src="/images/logo.svg" class="logo">
+    <form class="form">
+        <TextField
+            Type="text"
+            Name="username"
+            Placeholder="Username"
+            CssClass="field"
+            @bind-Value=@credentials.Username
+        />
+        <TextField
+            Type="password"
+            Name="password"
+            Placeholder="Password"
+            CssClass="field"
+            @bind-Value=@credentials.Password
+        />
+        <Button
+            Type="submit"
+            CssClass="submit"
+            Disabled=@CannotProceed
+            Loading=@loading
+            OnClick=@OnSubmit
+        >
+            Login
+        </Button>
+        <a
+            href="https://wildfyre.net/register"
+            target="_blank"
+            rel="noopener"
+            class="button"
+        >
+            Register
+        </a>
+    </form>
+</div>
 
 @code
 {
