@@ -3,6 +3,7 @@
 @inject IHistoryService history
 @inject ILocalStorageService localStorage
 @inject IJSRuntime javascript
+@inject IAuthorService authorService
 
 <div class="page @CssClass">
     <SideNavigation Destinations=@destinations />
@@ -61,18 +62,28 @@
         }
 
         localStorage.Changed += OnLocalStorageChanged;
-        var token = await localStorage.GetItemAsStringAsync("auth.token");
-        var changedArgs = new Blazored.LocalStorage.ChangedEventArgs() { Key = "auth.token", NewValue = token };
-        OnLocalStorageChanged(this, changedArgs);
+        // Trigger post-login process
+        var token = await localStorage.GetItemAsStringAsync("auth.token") ?? "";
+        await localStorage.SetItemAsync("auth.token", token);
     }
 
-    private void OnLocalStorageChanged(object sender, Blazored.LocalStorage.ChangedEventArgs args)
+    private async void OnLocalStorageChanged(object sender, Blazored.LocalStorage.ChangedEventArgs args)
     {
-        var value = args.NewValue?.ToString() ?? "";
-
         if (args.Key == "auth.token")
         {
+            var value = args.NewValue?.ToString() ?? "";
             isAuthenticated = value.Length > 0;
+
+            if (isAuthenticated)
+            {
+                var self = await authorService.GetSelf();
+                await localStorage.SetItemAsync("author.self", self);
+            }
+            else
+            {
+                await localStorage.RemoveItemAsync("author.self");
+            }
+
             StateHasChanged();
         }
     }

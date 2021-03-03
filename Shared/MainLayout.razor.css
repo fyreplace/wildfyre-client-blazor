@@ -27,7 +27,7 @@
     }
 
     ::deep .navigation.-side {
-        display: initial;
+        display: flex;
     }
 
     ::deep .navigation.-bottom {

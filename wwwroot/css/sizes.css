@@ -1,9 +1,11 @@
 html {
-    --size-bar: 48px;
+    --size-bar: 50px;
+    --size-avatar: 30px;
 }
 
 @media (min-height: 760px) {
     html {
         --size-bar: 60px;
+        --size-avatar: 40px;
     }
 }

@@ -1,6 +1,11 @@
 @inherits NavigationBase
+@inject ILocalStorageService localStorage
+@inject IAuthorService authorService
 
 <nav class="navigation -side">
+    <div class="profile">
+        <img alt="Logo" src=@avatar class="image">
+    </div>
     @foreach (var destination in Destinations)
     {
         <div class="nav-wrapper" style="height: calc(@ItemSize - 16px)">
@@ -8,3 +13,23 @@
         </div>
     }
 </nav>
+
+@code
+{
+    private string avatar;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        localStorage.Changed += OnLocalStorageChanged;
+    }
+
+    private void OnLocalStorageChanged(object sender, Blazored.LocalStorage.ChangedEventArgs args)
+    {
+        if (args.Key == "author.self" && args.NewValue != null)
+        {
+            var self = args.NewValue as Author?;
+            avatar = self?.Avatar;
+        }
+    }
+}

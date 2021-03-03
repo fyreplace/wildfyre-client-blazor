@@ -8,10 +8,10 @@ namespace Blazored.LocalStorage
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddHistory(this IServiceCollection services)
-        {
-            services.AddScoped<IHistoryService, HistoryService>();
-            return services;
-        }
+        public static IServiceCollection AddHistory(this IServiceCollection services) =>
+            services.AddSingleton<IHistoryService, HistoryService>();
+
+        public static IServiceCollection AddAuthHeaderHandler(this IServiceCollection services) =>
+            services.AddScoped<AuthHeaderHandler>();
     }
 }

@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Blazored.LocalStorage;
 using Blazored.SessionStorage;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Refit;
 using Ynferno.Services;
 
@@ -20,8 +21,17 @@ namespace Ynferno
                 .AddBlazoredLocalStorage()
                 .AddBlazoredSessionStorage()
                 .AddHistory()
-                .AddRefitClient<IAuthService>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiUrl));
+                .AddAuthHeaderHandler();
+
+            foreach (var refit in new List<IHttpClientBuilder>() {
+                builder.Services.AddRefitClient<IAuthService>(),
+                builder.Services.AddRefitClient<IAuthorService>(),
+            })
+            {
+                refit
+                    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiUrl))
+                    .AddHttpMessageHandler<AuthHeaderHandler>();
+            }
             await builder.Build().RunAsync();
         }
     }
