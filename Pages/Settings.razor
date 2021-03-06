@@ -1,1 +1,67 @@
 @page "/settings"
+@inject ILocalStorageService localStorage
+@inject IAuthorService authorService
+
+<form class="container -form">
+    <img alt="Avatar" src=@self?.Avatar class="image">
+    <p class="name">@self?.Name</p>
+    <TextField
+        Type="textarea"
+        Name="bio"
+        Placeholder="Bio"
+        CssClass="bio"
+        @bind-Value=@bio
+    />
+        <Button
+            Type="submit"
+            CssClass="submit"
+            Disabled=@Clean
+            Loading=@saving
+            OnClick=@OnSubmit
+        >
+            Save
+        </Button>
+</form>
+
+@code
+{
+    private Author? self;
+    private string bio;
+    private bool saving;
+    private bool Clean => bio == self?.Bio;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        localStorage.Changed += OnLocalStorageChanged;
+        UpdateSelf(await localStorage.GetItemAsync<Author>("author.self"));
+    }
+
+    private void OnLocalStorageChanged(object sender, Blazored.LocalStorage.ChangedEventArgs args)
+    {
+        if (args.Key == "author.self" && args.NewValue != null)
+        {
+            UpdateSelf(args.NewValue as Author?);
+        }
+    }
+
+    private void UpdateSelf(Author? author)
+    {
+        self = author;
+        bio = self?.Bio;
+    }
+
+    private async Task OnSubmit(MouseEventArgs args)
+    {
+        try
+        {
+            saving = true;
+            var patch = new Author.Patch() { Bio = bio };
+            await localStorage.SetItemAsync("author.self", await authorService.UpdateSelf(patch));
+        }
+        finally
+        {
+            saving = false;
+        }
+    }
+}

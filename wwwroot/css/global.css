@@ -16,6 +16,7 @@ html {
 }
 
 input,
+textarea,
 button {
     margin: 0;
 }

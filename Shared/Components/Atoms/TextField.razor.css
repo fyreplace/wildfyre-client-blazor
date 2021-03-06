@@ -1,6 +1,7 @@
 .label {
     --size-border: 2px;
-    --size-inner-padding: 8px;
+    --size-padding-x: 8px;
+    --size-padding-y: 6px;
 
     display: flex;
     flex-direction: column;
@@ -10,13 +11,16 @@
 
 .input {
     min-height: 32px;
-    padding: 0 var(--size-inner-padding);
+    padding: 0 var(--size-padding-x);
     border: var(--size-border) solid transparent;
     border-radius: 4px;
 
     background: var(--color-background-input);
     color: var(--color-on-background);
     font-size: 1rem;
+    font-family: sans-serif;
+    resize: vertical;
+    transition-property: border;
 }
 
 .input:focus {
@@ -27,13 +31,18 @@
     color: var(--color-input-placeholder);
 }
 
+textarea.input {
+    min-height: 80px;
+    padding: var(--size-padding-y) var(--size-padding-x);
+}
+
 .-error .input {
     border-color: var(--color-error);
 }
 
 .error {
     height: 1.5em;
-    margin-left: calc(var(--size-inner-padding) + var(--size-border));
+    margin-left: calc(var(--size-padding-x) + var(--size-border));
     display: inline-flex;
     align-items: flex-end;
     color: var(--color-error);
@@ -41,7 +50,8 @@
 
 @media (min-width: 480px) and (min-height: 480px) {
     .label {
-        --size-inner-padding: 12px;
+        --size-padding-x: 12px;
+        --size-padding-y: 8px;
         font-size: 0.875rem;
     }
 

@@ -1,0 +1,12 @@
+.header {
+    width: 100%;
+    height: var(--size-bar);
+    border-bottom: 1px solid var(--color-separator);
+    background: var(--color-surface);
+}
+
+.-full-screen .header {
+    height: 0;
+    overflow: hidden;
+    transform: translateY(-100%);
+}

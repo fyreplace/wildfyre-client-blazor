@@ -21,5 +21,10 @@ namespace Ynferno.Models
         public static bool operator ==(Author left, Author right) => left.Equals(right);
 
         public static bool operator !=(Author left, Author right) => !(left == right);
+
+        public struct Patch
+        {
+            public string Bio { get; set; }
+        }
     }
 }

@@ -9,14 +9,17 @@
     <SideNavigation Destinations=@destinations />
     <BottomNavigation Destinations=@destinations />
     <div class="main">
-        @if (isAuthenticated)
-        {
-            @Body
-        }
-        else
-        {
-            <Login />
-        }
+        <Toolbar />
+        <div class="content">
+            @if (isAuthenticated)
+            {
+                @Body
+            }
+            else
+            {
+                <Login />
+            }
+        </div>
     </div>
 </div>
 

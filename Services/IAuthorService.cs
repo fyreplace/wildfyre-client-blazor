@@ -11,5 +11,9 @@ namespace Ynferno.Services
         [Get("/users/")]
         [Headers("Authorization: Token")]
         Task<Author> GetSelf();
+
+        [Patch("/users/")]
+        [Headers("Authorization: Token")]
+        Task<Author> UpdateSelf([Body] Author.Patch patch);
     }
 }
