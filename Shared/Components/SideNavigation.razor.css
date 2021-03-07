@@ -67,7 +67,7 @@
 .navigation ::deep a.active {
     background: var(--color-primary);
     border-color: var(--color-primary);
-    color: inherit;
+    color: var(--color-on-primary);
 }
 
 .navigation ::deep a > .nav-text {
