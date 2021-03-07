@@ -48,6 +48,8 @@
     height: 100%;
     padding: 0 var(--size-gap);
     border: 2px solid transparent;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 
@@ -68,7 +70,7 @@
     color: inherit;
 }
 
-.navigation ::deep a > span {
+.navigation ::deep a > .nav-text {
     width: 100%;
     transform: scaleX(0.5);
 }

@@ -9,7 +9,10 @@
     color: var(--color-primary);
     fill: var(--color-primary);
     font-size: 1rem;
+
     cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 @media (hover: hover) {
