@@ -50,7 +50,12 @@
 .navigation ::deep a:active {
     color: var(--color-accent);
     stroke: var(--color-accent);
-    transform: scale(0.9);
+}
+
+@media (hover: hover) {
+    .navigation ::deep a:active {
+        transform: scale(0.9);
+    }
 }
 
 .navigation ::deep a.active {
