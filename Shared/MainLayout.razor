@@ -79,12 +79,23 @@
 
             if (isAuthenticated)
             {
-                var self = await authorService.GetSelf();
-                await localStorage.SetItemAsync("author.self", self);
+                try
+                {
+                    var self = await authorService.GetSelf();
+                    await localStorage.SetItemAsync("author.self", self);
+                }
+                catch (ApiException error)
+                {
+                    if (error.StatusCode == HttpStatusCode.Unauthorized)
+                    {
+                        isAuthenticated = false;
+                    }
+                }
             }
-            else
+
+            if (!isAuthenticated)
             {
-                await localStorage.RemoveItemAsync("author.self");
+                await localStorage.ClearAsync();
             }
 
             StateHasChanged();
