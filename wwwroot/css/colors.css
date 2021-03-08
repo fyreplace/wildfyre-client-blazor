@@ -1,7 +1,8 @@
 html {
-    --color-error: red;
-    --color-input-label: #7F7F7F;
-    --color-accent: #FF6E40;
+    --color-input-label: gray;
+    --color-accent: orange;
+    --color-primary: darkorange;
+    --color-on-primary: white;
 }
 
 @media (prefers-color-scheme: light) {
@@ -13,8 +14,11 @@ html {
         --color-background-input: #EFEFEF;
         --color-separator: #CFCFCF;
         --color-input-placeholder: #9F9F9F;
-        --color-primary: #E64A19;
-        --color-on-primary: white;
+
+        --color-error: red;
+        --color-on-error: white;
+        --color-success: limegreen;
+        --color-on-success: white;
     }
 }
 
@@ -27,7 +31,10 @@ html {
         --color-background-input: #1F1F1F;
         --color-separator: #2F2F2F;
         --color-input-placeholder: #5F5F5F;
-        --color-primary: #FF7043;
-        --color-on-primary: white;
+
+        --color-error: crimson;
+        --color-on-error: white;
+        --color-success: mediumseagreen;
+        --color-on-success: white;
     }
 }
