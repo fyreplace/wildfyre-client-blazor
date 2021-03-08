@@ -1,20 +1,18 @@
 @inherits Styleable
 
-<div class=@CssClass>
-    <button
-        type=@Type
-        disabled=@Disabled
-        class="button @ButtonCssClass"
-        @onclick=@OnClick
-        @onclick:preventDefault=true
-    >
-        <span class="content">@ChildContent</span>
-        @if (Loading)
-        {
-            <span class="loader"><Loader /></span>
-        }
-    </button>
-</div>
+<button
+    type=@Type
+    disabled=@Disabled
+    class="button @ButtonCssClass @CssClass"
+    @onclick=@OnClick
+    @onclick:preventDefault=true
+>
+    <span class="content">@ChildContent</span>
+    @if (Loading)
+    {
+        <span class="loader"><Loader /></span>
+    }
+</button>
 
 @code
 {
