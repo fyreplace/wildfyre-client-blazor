@@ -1,0 +1,3 @@
+#app:not(.-update-available) .-updater {
+    display: none;
+}

@@ -21,7 +21,8 @@ namespace Ynferno
                 .AddBlazoredLocalStorage()
                 .AddBlazoredSessionStorage()
                 .AddHistory()
-                .AddAuthHeaderHandler();
+                .AddAuthHeaderHandler()
+                .AddToolbar();
 
             foreach (var refit in new List<IHttpClientBuilder>() {
                 builder.Services.AddRefitClient<IAuthService>(),

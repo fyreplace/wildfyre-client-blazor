@@ -13,5 +13,8 @@ namespace Blazored.LocalStorage
 
         public static IServiceCollection AddAuthHeaderHandler(this IServiceCollection services) =>
             services.AddScoped<AuthHeaderHandler>();
+
+        public static IServiceCollection AddToolbar(this IServiceCollection services) =>
+            services.AddSingleton<IToolbarService, ToolbarService>();
     }
 }

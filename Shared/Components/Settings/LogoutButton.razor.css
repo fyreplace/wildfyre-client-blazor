@@ -1,0 +1,4 @@
+::deep .button {
+    --color-primary: var(--color-error);
+    --color-on-primary: var(--color-on-error);
+}

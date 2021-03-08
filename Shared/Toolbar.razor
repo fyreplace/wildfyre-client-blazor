@@ -1,2 +1,48 @@
+@inject NavigationManager navigator
+@inject IToolbarService toolbarService
+
 <header class="header">
+    <ul class="items-list">
+        @foreach (var item in startItems)
+        {
+            <li class="item -start">@item</li>
+        }
+    </ul>
+    <div class="spacer"></div>
+    <ul class="items-list">
+        @foreach (var item in endItems)
+        {
+            <li class="item -end">@item</li>
+        }
+    </ul>
 </header>
+
+@code
+{
+    private List<RenderFragment> startItems = new List<RenderFragment>();
+    private List<RenderFragment> endItems = new List<RenderFragment>();
+    private string lastLocation;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        navigator.LocationChanged += OnLocationChanged;
+        toolbarService.Changed += OnToolbarChanged;
+    }
+
+    private void OnLocationChanged(object sender, LocationChangedEventArgs args)
+    {
+        if (args.Location != lastLocation)
+        {
+            lastLocation = args.Location;
+            toolbarService.SetItems(null, null);
+        }
+    }
+
+    private void OnToolbarChanged(object sender, List<RenderFragment> start, List<RenderFragment> end)
+    {
+        startItems = start;
+        endItems = end;
+        StateHasChanged();
+    }
+}

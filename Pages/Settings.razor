@@ -1,6 +1,8 @@
 @page "/settings"
+@using Ynferno.Shared.Components.Settings
 @inject ILocalStorageService localStorage
 @inject IAuthorService authorService
+@inject IToolbarService toolbarService
 
 <form class="container -form">
     <img alt="Avatar" src=@self?.Avatar class="image">
@@ -33,6 +35,10 @@
         await base.OnInitializedAsync();
         localStorage.Changed += OnLocalStorageChanged;
         UpdateSelf(await localStorage.GetItemAsync<Author>("author.self"));
+
+        RenderFragment updateButton = __builder => { <UpdateButton>Update</UpdateButton> };
+        RenderFragment logoutButton = __builder => { <LogoutButton>Logout</LogoutButton> };
+        toolbarService.SetItems( null, new List<RenderFragment> { updateButton, logoutButton } );
     }
 
     private void OnLocalStorageChanged(object sender, Blazored.LocalStorage.ChangedEventArgs args)

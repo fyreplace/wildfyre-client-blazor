@@ -13,6 +13,7 @@
     <link href="css/global.css" rel="stylesheet" />
     <link href="css/links.css" rel="stylesheet" />
     <link href="css/containers.css" rel="stylesheet" />
+    <link href="css/updates.css" rel="stylesheet" />
     <link href="Ynferno.styles.css" rel="stylesheet" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -37,8 +38,41 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <script>
 
+    let worker = null
+
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register("service-worker.js")
+        navigator.serviceWorker.register('service-worker.js')
+            .then(reg => {
+                reg.addEventListener('updatefound', () => {
+                    const app = document.getElementById('app')
+                    worker = reg.installing
+                    worker.addEventListener('statechange', () => {
+                        switch (worker.state) {
+                            case 'installed':
+                                app.classList.add('-update-available')
+                                break
+
+                            case 'activated':
+                                app.classList.remove('-update-available')
+                                break
+                        }
+                    })
+                })
+            })
+
+        let refreshing = false
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (!refreshing) {
+                refreshing = true
+                window.location.reload()
+            }
+        })
+    }
+
+    function finishUpdate() {
+        if (worker) {
+            worker.postMessage({ action: 'skipWaiting' })
+        }
     }
 
     </script>

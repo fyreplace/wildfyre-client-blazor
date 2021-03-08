@@ -1,0 +1,4 @@
+::deep .button {
+    --color-primary: var(--color-success);
+    --color-on-primary: var(--color-on-success);
+}

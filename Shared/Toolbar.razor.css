@@ -1,6 +1,10 @@
 .header {
+    --size-item-gap: 12px;
+
     width: 100%;
     height: var(--size-bar);
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid var(--color-separator);
     background: var(--color-surface);
 }
@@ -9,4 +13,23 @@
     height: 0;
     overflow: hidden;
     transform: translateY(-100%);
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.items-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+
+.item.-start {
+    margin-left: var(--size-item-gap);
+}
+
+.item.-end {
+    margin-right: var(--size-item-gap);
 }
