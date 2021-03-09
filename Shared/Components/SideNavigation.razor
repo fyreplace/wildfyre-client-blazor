@@ -9,7 +9,9 @@
     @foreach (var destination in Destinations)
     {
         <div class="nav-wrapper" style="height: calc(@ItemSize - 16px)">
-            <NavLink href="@destination.Route"><span class="nav-text">@destination.Text</span></NavLink>
+            <NavLink href="@destination.Route">
+                <span class="nav-text">@destination.Text @destination.Badge</span>
+            </NavLink>
         </div>
     }
 </nav>

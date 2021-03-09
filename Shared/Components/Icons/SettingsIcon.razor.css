@@ -1,0 +1,11 @@
+.icon {
+    overflow: visible;
+}
+
+.badge {
+    fill: var(--color-success);
+}
+
+.badge-icon {
+    stroke: var(--color-on-success);
+}

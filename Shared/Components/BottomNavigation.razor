@@ -5,7 +5,10 @@
     {
         <div class="nav-wrapper" style="flex-basis: @ItemSize">
             <NavLink href="@destination.Route">
-                @destination.Icon
+                <div class="icon-wrapper">
+                    @destination.Icon
+                    @destination.Badge
+                </div>
                 @destination.Text
             </NavLink>
         </div>

@@ -19,10 +19,24 @@
     font-size: 0.75rem;
 }
 
+.icon-wrapper {
+    margin-bottom: 4px;
+    position: relative;
+}
+
 .nav-wrapper ::deep .icon {
     width: 20px;
     height: 20px;
-    margin-bottom: 4px;
+    display: block;
+}
+
+.nav-wrapper ::deep .badge {
+    width: 70%;
+    height: 70%;
+    display: block;
+    position: absolute;
+    top: -10%;
+    right: -10%;
 }
 
 ::deep * {
