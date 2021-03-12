@@ -15,10 +15,10 @@ html {
         --color-separator: #CFCFCF;
         --color-input-placeholder: #9F9F9F;
 
-        --color-error: red;
-        --color-on-error: white;
-        --color-success: limegreen;
-        --color-on-success: white;
+        --color-no: red;
+        --color-on-no: white;
+        --color-yes: limegreen;
+        --color-on-yes: white;
     }
 }
 
@@ -32,9 +32,9 @@ html {
         --color-separator: #2F2F2F;
         --color-input-placeholder: #5F5F5F;
 
-        --color-error: crimson;
-        --color-on-error: white;
-        --color-success: mediumseagreen;
-        --color-on-success: white;
+        --color-no: crimson;
+        --color-on-no: white;
+        --color-yes: mediumseagreen;
+        --color-on-yes: white;
     }
 }

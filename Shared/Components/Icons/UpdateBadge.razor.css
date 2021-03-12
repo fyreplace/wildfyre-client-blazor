@@ -3,9 +3,9 @@
 }
 
 .badge-background {
-    fill: var(--color-success);
+    fill: var(--color-yes);
 }
 
 .badge-icon {
-    stroke: var(--color-on-success);
+    stroke: var(--color-on-yes);
 }
