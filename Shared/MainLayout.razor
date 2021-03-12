@@ -1,4 +1,5 @@
 @inherits LayoutComponentBase
+@implements IDisposable
 @inject NavigationManager navigator
 @inject IHistoryService history
 @inject ILocalStorageService localStorage
@@ -70,6 +71,8 @@
         var token = await localStorage.GetItemAsStringAsync("auth.token") ?? "";
         await localStorage.SetItemAsync("auth.token", token);
     }
+
+    public void Dispose() => localStorage.Changed -= OnLocalStorageChanged;
 
     private async void OnLocalStorageChanged(object sender, Blazored.LocalStorage.ChangedEventArgs args)
     {

@@ -1,4 +1,5 @@
 @page "/settings"
+@implements IDisposable
 @using Ynferno.Shared.Components.Settings
 @inject ILocalStorageService localStorage
 @inject IAuthorService authorService
@@ -40,6 +41,8 @@
         RenderFragment logoutButton = __builder => { <LogoutButton>Logout</LogoutButton> };
         toolbarService.SetItems( null, new List<RenderFragment> { updateButton, logoutButton } );
     }
+
+    public void Dispose() => localStorage.Changed -= OnLocalStorageChanged;
 
     private void OnLocalStorageChanged(object sender, Blazored.LocalStorage.ChangedEventArgs args)
     {

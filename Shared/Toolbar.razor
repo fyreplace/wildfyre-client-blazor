@@ -1,3 +1,4 @@
+@implements IDisposable
 @inject NavigationManager navigator
 @inject IToolbarService toolbarService
 
@@ -28,6 +29,12 @@
         base.OnInitialized();
         navigator.LocationChanged += OnLocationChanged;
         toolbarService.Changed += OnToolbarChanged;
+    }
+
+    public void Dispose()
+    {
+        navigator.LocationChanged -= OnLocationChanged;
+        toolbarService.Changed -= OnToolbarChanged;
     }
 
     private void OnLocationChanged(object sender, LocationChangedEventArgs args)
