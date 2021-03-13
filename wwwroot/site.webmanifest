@@ -3,6 +3,20 @@
     "short_name": "Ynferno",
     "start_url": "./",
     "display": "standalone",
+    "shortcuts": [
+        {
+            "name": "Notifications",
+            "url": "/notifications"
+        },
+        {
+            "name": "Archive",
+            "url": "/archive"
+        },
+        {
+            "name": "Drafts",
+            "url": "/drafts"
+        }
+    ],
     "icons": [
         {
             "src": "icon-48x48.png",
