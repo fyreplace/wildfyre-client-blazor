@@ -6,7 +6,9 @@
 @inject IToolbarService toolbarService
 
 <form class="container -form">
-    <img alt="Avatar" src=@self?.Avatar class="image">
+    <ImageSelector OnFileLoaded=@OnFileLoaded>
+        <img alt="Avatar" src=@Avatar class="image">
+    </ImageSelector>
     <p class="name">@self?.Name</p>
     <TextField
         Type="textarea"
@@ -29,6 +31,7 @@
     private Author? self;
     private string bio;
     private bool saving;
+    private string Avatar => self?.Avatar ?? "/images/default-avatar.svg";
     private bool Clean => bio == self?.Bio;
 
     protected override async Task OnInitializedAsync()
@@ -56,6 +59,12 @@
     {
         self = author;
         bio = self?.Bio;
+    }
+
+    private async Task OnFileLoaded(ImageData imageData)
+    {
+        var author = await authorService.SetAvatar(imageData.AsByteArrayPart());
+        await localStorage.SetItemAsync("author.self", author);
     }
 
     private async Task OnSubmit(MouseEventArgs args)

@@ -1,0 +1,55 @@
+@inherits Styleable
+@inject IJSRuntime javascript
+
+<label class="label">
+    @ChildContent
+    <InputFile type="file" accept="image/jpeg,image/png" class="input" OnChange=@LoadFile />
+</label>
+
+@code
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public Func<ImageData, Task> OnFileLoaded { get; set; }
+
+    private static int MaxImageSize => 512 * 1000;
+    private static int MaxImageUploadSize => MaxImageSize * 10;
+    private static int MaxImageSurface => 1920 * 1080;
+
+    async Task LoadFile(InputFileChangeEventArgs args)
+    {
+        byte[] bytes = Array.Empty<byte>();
+        using var data = args.File.OpenReadStream(MaxImageUploadSize);
+
+        if (args.File.Size <= MaxImageSize)
+        {
+            using var memory = new MemoryStream();
+            await data.CopyToAsync(memory);
+            bytes = memory.ToArray();
+        }
+        else
+        {
+            bytes = await ReducedImageData(data, args.File.ContentType);
+        }
+
+        var imageData = new ImageData()
+        {
+            Name = args.File.Name,
+            Mime = args.File.ContentType,
+            Data = bytes,
+        };
+
+        await OnFileLoaded(imageData);
+    }
+
+    private async Task<byte[]> ReducedImageData(Stream data, string mime)
+    {
+        var output = new MemoryStream();
+        await data.CopyToAsync(output);
+        var bytes = output.ToArray();
+        var base64 = Convert.ToBase64String(bytes);
+        var result = await javascript.InvokeAsync<string>("resizeData", base64, mime, MaxImageSurface);
+        return Convert.FromBase64String(result);
+    }
+}

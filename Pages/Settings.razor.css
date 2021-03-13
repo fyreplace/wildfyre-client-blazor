@@ -1,7 +1,20 @@
 .image {
+    box-sizing: border-box;
     width: 120px;
     height: 120px;
+    border: 2px solid transparent;
     border-radius: 50%;
+    background: var(--color-background-input);
+}
+
+@media (hover: hover) {
+    .image:hover {
+        border-color: var(--color-primary);
+    }
+}
+
+.image:active {
+    transform: scale(0.9);
 }
 
 .name {

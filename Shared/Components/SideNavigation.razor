@@ -35,6 +35,7 @@
         {
             var self = args.NewValue as Author?;
             avatar = self?.Avatar;
+            StateHasChanged();
         }
     }
 }

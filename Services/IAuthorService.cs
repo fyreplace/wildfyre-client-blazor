@@ -15,5 +15,10 @@ namespace Ynferno.Services
         [Patch("/users/")]
         [Headers("Authorization: Token")]
         Task<Author> UpdateSelf([Body] Author.Patch patch);
+
+        [Multipart]
+        [Put("/users/")]
+        [Headers("Authorization: Token")]
+        Task<Author> SetAvatar([AliasAs("avatar")] ByteArrayPart avatar);
     }
 }
