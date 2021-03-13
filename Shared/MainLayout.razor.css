@@ -13,7 +13,6 @@
 }
 
 .content {
-    padding: 16px;
     flex-grow: 1;
     flex-basis: 0;
     display: flex;
@@ -41,11 +40,5 @@
 
     ::deep .navigation.-bottom {
         display: none;
-    }
-}
-
-@media (min-width: 600px) {
-    .content {
-        padding: 24px;
     }
 }
