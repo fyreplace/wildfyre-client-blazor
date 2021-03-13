@@ -1,16 +1,13 @@
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System.Threading.Tasks;
 
 namespace Ynferno.Services
 {
     public class HistoryService : IHistoryService
     {
-        private IJSRuntime? javascript;
+        private readonly IJSRuntime? javascript;
 
         public HistoryService(IJSRuntime javascript) => this.javascript = javascript;
 
