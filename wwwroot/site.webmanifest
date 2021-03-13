@@ -5,11 +5,6 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "icon.svg",
-            "type": "image/png",
-            "sizes": "500x500"
-        },
-        {
             "src": "icon-48x48.png",
             "type": "image/png",
             "sizes": "48x48"
@@ -43,12 +38,6 @@
             "src": "icon-512x512.png",
             "type": "image/png",
             "sizes": "512x512"
-        },
-        {
-            "src": "icon-maskable.svg",
-            "type": "image/png",
-            "sizes": "1000x1000",
-            "purpose": "maskable"
         },
         {
             "src": "icon-maskable-48x48.png",
