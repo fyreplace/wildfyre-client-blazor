@@ -16,6 +16,46 @@ html {
     -webkit-tap-highlight-color: transparent;
 }
 
+#initial-loader {
+    width: 160px;
+    height: 160px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    overflow: visible;
+    transform: translate(-50%, -50%);
+}
+
+#initial-loader-logo {
+    animation: logo-pulse 2s infinite;
+}
+
+#initial-loader-circle {
+    animation: circle-pulse 2s infinite;
+}
+
+@keyframes logo-pulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px orange);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 40px orange);
+    }
+}
+
+@keyframes circle-pulse {
+    0%, 100% {
+        filter: blur(0) drop-shadow(0 0 10px gold);
+        stroke-width: 30px;
+    }
+
+    50% {
+        filter: blur(10px) drop-shadow(0 0 40px gold);
+        stroke-width: 60px;
+    }
+}
+
 input,
 textarea,
 button {
