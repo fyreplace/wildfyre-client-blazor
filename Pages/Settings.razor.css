@@ -6,14 +6,14 @@
     box-sizing: border-box;
     width: 120px;
     height: 120px;
-    border: 2px solid transparent;
+    border: 3px solid transparent;
     border-radius: 50%;
     background: var(--color-background-input);
 }
 
 @media (hover: hover) {
     .image:hover {
-        border-color: var(--color-primary);
+        border-color: var(--color-accent);
     }
 }
 
