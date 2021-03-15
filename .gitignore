@@ -1,6 +1,12 @@
+# General
 .DS_Store
+
+# Building and publishing
+.dotnet
 obj
 bin
+published
 
+# Editors
 .vs
 .vscode
