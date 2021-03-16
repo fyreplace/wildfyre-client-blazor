@@ -5,7 +5,7 @@
 
 <nav class="navigation -side">
     <div class="profile">
-        <img alt="Logo" src=@avatar class="image">
+        <img alt="Logo" src=@Avatar class="image">
     </div>
     @foreach (var destination in Destinations)
     {
@@ -20,6 +20,7 @@
 @code
 {
     private string avatar;
+    private string Avatar => avatar ?? "/images/default-avatar.svg";
 
     protected override void OnInitialized()
     {

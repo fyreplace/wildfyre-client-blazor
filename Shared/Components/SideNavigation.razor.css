@@ -32,6 +32,7 @@
     height: var(--size-avatar);
     display: block;
     border-radius: 50%;
+    background: var(--color-background-input);
 }
 
 .nav-wrapper {
