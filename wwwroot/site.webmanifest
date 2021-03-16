@@ -5,6 +5,10 @@
     "display": "standalone",
     "shortcuts": [
         {
+            "name": "Feed",
+            "url": "/feed"
+        },
+        {
             "name": "Notifications",
             "url": "/notifications"
         },
@@ -15,6 +19,10 @@
         {
             "name": "Drafts",
             "url": "/drafts"
+        },
+        {
+            "name": "Settings",
+            "url": "/settings"
         }
     ],
     "icons": [
