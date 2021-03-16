@@ -25,15 +25,30 @@ html {
     overflow: visible;
     transform: translate(-50%, -50%);
     animation: loader-pulse 2s infinite;
+    animation-delay: 1s;
+}
+
+.initial-loader {
+    animation: loader-appear 1s normal;
 }
 
 @keyframes loader-pulse {
     0%, 100% {
-        filter: drop-shadow(0 0 0 orange);
+        filter: drop-shadow(0 0 0 var(--color-primary));
     }
 
     50% {
-        filter: drop-shadow(0 0 30px orange);
+        filter: drop-shadow(0 0 10px var(--color-primary));
+    }
+}
+
+@keyframes loader-appear {
+    0%, 50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 
