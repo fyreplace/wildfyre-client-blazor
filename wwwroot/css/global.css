@@ -24,35 +24,16 @@ html {
     left: 50%;
     overflow: visible;
     transform: translate(-50%, -50%);
+    animation: loader-pulse 2s infinite;
 }
 
-#initial-loader-logo {
-    animation: logo-pulse 2s infinite;
-}
-
-#initial-loader-circle {
-    animation: circle-pulse 2s infinite;
-}
-
-@keyframes logo-pulse {
+@keyframes loader-pulse {
     0%, 100% {
-        filter: drop-shadow(0 0 10px orange);
+        filter: drop-shadow(0 0 0 orange);
     }
 
     50% {
-        filter: drop-shadow(0 0 40px orange);
-    }
-}
-
-@keyframes circle-pulse {
-    0%, 100% {
-        filter: blur(0) drop-shadow(0 0 10px gold);
-        stroke-width: 30px;
-    }
-
-    50% {
-        filter: blur(10px) drop-shadow(0 0 40px gold);
-        stroke-width: 60px;
+        filter: drop-shadow(0 0 30px orange);
     }
 }
 
