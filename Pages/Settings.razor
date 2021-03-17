@@ -40,8 +40,8 @@
         localStorage.Changed += OnLocalStorageChanged;
         UpdateSelf(await localStorage.GetItemAsync<Author>("author.self"));
 
-        RenderFragment updateButton = __builder => { <UpdateButton>Update</UpdateButton> };
-        RenderFragment logoutButton = __builder => { <LogoutButton>Logout</LogoutButton> };
+        RenderFragment updateButton = __builder => { <UpdateButton /> };
+        RenderFragment logoutButton = __builder => { <LogoutButton /> };
         toolbarService.SetItems( null, new List<RenderFragment> { updateButton, logoutButton } );
     }
 

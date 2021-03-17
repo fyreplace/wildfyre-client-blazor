@@ -1,13 +1,10 @@
 @inject ILocalStorageService localStorage
 
 <div>
-    <Button OnClick=@OnLogout>@ChildContent</Button>
+    <Button OnClick=@OnLogout>Logout</Button>
 </div>
 
 @code
 {
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
     private async Task OnLogout(MouseEventArgs args) => await localStorage.SetItemAsync("auth.token", "");
 }

@@ -1,3 +1,5 @@
-#app:not(.-update-available) .-updater {
+#app:not(.-update-available) .-updater:not(.-update-checker),
+#app:not(.-update-available) .-updater-text,
+#app.-update-available .-update-checker-text {
     display: none;
 }

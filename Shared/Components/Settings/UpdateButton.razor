@@ -1,18 +1,18 @@
 @inject IJSRuntime javascript
 
-<div class="-updater">
-    <Button Loading=@updating OnClick=@OnUpdate>@ChildContent</Button>
+<div class="-updater -update-checker">
+    <Button Loading=@updating OnClick=@OnUpdate>
+        <span class="-updater-text">Update</span>
+        <span class="-update-checker-text">Check for update</span>
+    </Button>
 </div>
 
 @code
 {
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
     private bool updating;
 
     private async Task OnUpdate(MouseEventArgs args) {
         updating = true;
-        await javascript.InvokeVoidAsync("finishUpdate");
+        await javascript.InvokeVoidAsync("doUpdate");
     }
 }
