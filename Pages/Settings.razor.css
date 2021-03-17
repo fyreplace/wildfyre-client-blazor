@@ -18,6 +18,7 @@
 }
 
 .image:active {
+    border-color: var(--color-accent);
     transform: scale(0.9);
 }
 
