@@ -32,7 +32,7 @@
     }
 }
 
-@media (min-height: 760px) {
+@media (min-width: 480px) and (min-height: 760px) {
     .logo {
         width: 100px;
     }

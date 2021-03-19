@@ -73,7 +73,7 @@
     stroke: var(--color-primary);
 }
 
-@media (min-height: 760px) {
+@media (min-width: 480px) and (min-height: 760px) {
     .nav-wrapper {
         font-size: 0.875rem;
     }

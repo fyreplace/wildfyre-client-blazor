@@ -3,7 +3,7 @@ html {
     --size-avatar: 30px;
 }
 
-@media (min-height: 760px) {
+@media (min-width: 480px) and (min-height: 760px) {
     html {
         --size-bar: 60px;
         --size-avatar: 40px;
