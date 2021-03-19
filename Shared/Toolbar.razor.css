@@ -5,7 +5,6 @@
     height: var(--size-bar);
     padding-top: env(safe-area-inset-top);
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-separator);
 }
@@ -14,6 +13,10 @@
     height: 0;
     overflow: hidden;
     transform: translateY(-100%);
+}
+
+.spacer {
+    flex-grow: 1;
 }
 
 .items-list {
