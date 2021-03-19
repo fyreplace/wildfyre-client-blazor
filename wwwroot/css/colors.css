@@ -1,23 +1,19 @@
 html {
+    --color-background: white;
+    --color-on-background: black;
+    --color-background-input: #EFEFEF;
+    --color-separator: #CFCFCF;
+    --color-input-placeholder: #9F9F9F;
+
+    --color-no: red;
+    --color-on-no: white;
+    --color-yes: limegreen;
+    --color-on-yes: white;
+
     --color-input-label: gray;
     --color-accent: orange;
     --color-primary: darkorange;
     --color-on-primary: white;
-}
-
-@media (prefers-color-scheme: light) {
-    html {
-        --color-background: white;
-        --color-on-background: black;
-        --color-background-input: #EFEFEF;
-        --color-separator: #CFCFCF;
-        --color-input-placeholder: #9F9F9F;
-
-        --color-no: red;
-        --color-on-no: white;
-        --color-yes: limegreen;
-        --color-on-yes: white;
-    }
 }
 
 @media (prefers-color-scheme: dark) {
