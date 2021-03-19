@@ -1,5 +1,7 @@
 .container {
-    padding: 16px;
+    --size-padding: 16px;
+
+    padding: var(--size-padding) 0 calc(env(safe-area-inset-bottom) + var(--size-padding)) 0;
 }
 
 .image {
@@ -36,7 +38,7 @@
 
 @media (min-width: 600px) {
     .container {
-        padding: 24px;
+        --size-padding: 24px;
     }
 
     .image {

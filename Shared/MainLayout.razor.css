@@ -29,6 +29,14 @@
     display: none;
 }
 
+::deep .header .items-list:first-child {
+    margin-left: env(safe-area-inset-left);
+}
+
+::deep .header .items-list:last-child {
+    margin-right: env(safe-area-inset-right);
+}
+
 @media (min-aspect-ratio: 1/1) and (min-width: 480px) {
     .page {
         flex-direction: row;
@@ -40,5 +48,9 @@
 
     ::deep .navigation.-bottom {
         display: none;
+    }
+
+    ::deep .header .items-list:first-child {
+        margin-left: 0;
     }
 }
