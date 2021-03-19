@@ -42,7 +42,7 @@
 
         RenderFragment updateButton = __builder => { <UpdateButton /> };
         RenderFragment logoutButton = __builder => { <LogoutButton /> };
-        toolbarService.SetItems( null, new List<RenderFragment> { updateButton, logoutButton } );
+        toolbarService.SetItems(new [] { new [] { updateButton, logoutButton } } );
     }
 
     public void Dispose() => localStorage.Changed -= OnLocalStorageChanged;

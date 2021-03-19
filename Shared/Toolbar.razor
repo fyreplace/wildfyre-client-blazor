@@ -3,25 +3,23 @@
 @inject IToolbarService toolbarService
 
 <header class="header">
-    <ul class="items-list">
-        @foreach (var item in startItems)
-        {
-            <li class="item -start">@item</li>
-        }
-    </ul>
-    <div class="spacer"></div>
-    <ul class="items-list">
-        @foreach (var item in endItems)
-        {
-            <li class="item -end">@item</li>
-        }
-    </ul>
+    @foreach (var items in itemsLists)
+    {
+        var i = 0;
+        <ul class="items-list">
+            @foreach (var item in items)
+            {
+                var cls = i == 0 ? "-end" : i == 1 ? "-middle" : "-start";
+                <li class="item @cls">@item</li>
+            }
+        @{ i++; }
+        </ul>
+    }
 </header>
 
 @code
 {
-    private List<RenderFragment> startItems = new List<RenderFragment>();
-    private List<RenderFragment> endItems = new List<RenderFragment>();
+    private IEnumerable<IEnumerable<RenderFragment>> itemsLists = Array.Empty<RenderFragment[]>();
     private string lastLocation;
 
     protected override void OnInitialized()
@@ -42,14 +40,13 @@
         if (args.Location != lastLocation)
         {
             lastLocation = args.Location;
-            toolbarService.SetItems(null, null);
+            toolbarService.SetItems(null);
         }
     }
 
-    private void OnToolbarChanged(object sender, List<RenderFragment> start, List<RenderFragment> end)
+    private void OnToolbarChanged(object sender, IEnumerable<IEnumerable<RenderFragment>> itemsLists)
     {
-        startItems = start;
-        endItems = end;
+        this.itemsLists = itemsLists;
         StateHasChanged();
     }
 }

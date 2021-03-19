@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Components;
 
 namespace Ynferno.Services
 {
-    using Fragments = List<RenderFragment>;
+    using Fragments = IEnumerable<RenderFragment>;
 
     public interface IToolbarService
     {
-        delegate void ChangedEventHandler(object sender, Fragments start, Fragments end);
+        delegate void ChangedEventHandler(object sender, IEnumerable<Fragments> itemsLists);
         event ChangedEventHandler Changed;
 
-        void SetItems(Fragments? start = null, Fragments? end = null);
+        void SetItems(IEnumerable<Fragments>? itemsLists);
     }
 }
