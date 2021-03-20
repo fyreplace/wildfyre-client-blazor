@@ -17,17 +17,16 @@
         CssClass="bio"
         @bind-Value=@bio
     />
-        <Button
-            Type="submit"
-            CssClass="submit"
-            Disabled=@Clean
-            Loading=@saving
-            OnClick=@OnSubmit
-        >Save</Button>
+    <Button
+        Type="submit"
+        CssClass="submit"
+        Disabled=@Clean
+        Loading=@saving
+        OnClick=@OnSubmit
+    >Save</Button>
 </form>
 
-@code
-{
+@code {
     private Author? self;
     private string bio;
     private bool saving;

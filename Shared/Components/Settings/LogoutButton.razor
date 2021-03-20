@@ -4,7 +4,6 @@
     <Button OnClick=@OnLogout>Logout</Button>
 </div>
 
-@code
-{
+@code {
     private async Task OnLogout(MouseEventArgs args) => await localStorage.SetItemAsync("auth.token", "");
 }
