@@ -63,6 +63,7 @@
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
             .then(reg => {
+                console.info('Index: Registered service worker')
                 reg.addEventListener('updatefound', () => {
                     worker = reg.installing
                     worker.addEventListener('statechange', () => {
@@ -80,8 +81,10 @@
 
                 if ('update' in reg) {
                     setInterval(() => reg.update(), 1000 * 60 * 60 * 24)
+                    console.info('Index: Started service worker update check')
                 } else {
                     app.classList.add('-update-compat')
+                    console.warn('Index: Could not start service worker update check')
                 }
             })
 
@@ -92,6 +95,8 @@
                 window.location.reload()
             }
         })
+    } else {
+        console.warn('Index: Could not register service worker')
     }
 
     function doUpdate() {
