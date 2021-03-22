@@ -65,7 +65,7 @@
     max-height: calc(var(--size-min-height) * 1.5);
 }
 
-@media (min-width: 480px) and (min-height: 480px) {
+@media (min-width: 480px) and (min-height: 760px) {
     .button {
         --size-min-height: 40px;
         padding: 0 16px;
