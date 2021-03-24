@@ -61,7 +61,7 @@
 }
 
 ::deep .icon {
-    width: 80%;
+    width: 75%;
     max-height: calc(var(--size-min-height) * 1.5);
 }
 
